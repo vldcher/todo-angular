@@ -1,0 +1,47 @@
+.note-wrapper {
+  box-sizing: border-box;
+}
+.note {
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 400px;
+
+  &-title {
+    margin-top: 10px;
+  }
+
+  &-description {
+
+    .btn {
+      margin-right: 10px;
+      padding: 7px 10px;
+      cursor: pointer;
+      color: white;
+
+      &-add {
+        background-color: green;
+      }
+      &-archive {
+        background-color: lightslategray;
+      }
+      &-delete {
+        background-color: indianred;
+        float: right;
+      }
+    }
+  }
+
+  &-row {
+    margin: 10px 0;
+
+    &__label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    &__input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.note-wrapper {
+  box-sizing: border-box;
+}
+.all-notes {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin-top: 20px;
+
+}
+.note {
+  display: block;
+  width: 100%;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 400px;
+  overflow: hidden;
+
+  &-title {
+    margin-top: 10px;
+  }
+
+  &-description {
+    .controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: row;
+    }
+    .btn {
+      margin-right: 10px;
+      padding: 7px 10px;
+      cursor: pointer;
+      color: white;
+
+      &-add {
+        background-color: green;
+      }
+      &-archive {
+        background-color: lightslategray;
+      }
+      &-delete {
+        background-color: indianred;
+      }
+    }
+  }
+
+  &-row {
+    margin: 10px 0;
+
+    &__label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    &__input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
