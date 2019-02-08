@@ -1,43 +1,19 @@
 {
-  "users": [
+  "notes": [
     {
-      "id": 1,
-      "email": "admin@gmail.com",
-      "password": "12345678",
-      "role": "admin"
+      "title": "My title",
+      "text": "My text",
+      "id": 1
     },
     {
-      "id": 2,
-      "email": "borya@gmail.com",
-      "password": "12345678",
-      "role": "user"
+      "title": "Greeting",
+      "text": "Hello world",
+      "id": 2
     },
     {
-      "id": 3,
-      "email": "vlad@gmail.com",
-      "password": "12345678",
-      "role": "user"
-    }
-  ],
-
-  "products": [
-    {
-      "id": 1,
-      "name": "Cake",
-      "price": 15,
-      "description": "bla bla bla "
-    },
-    {
-      "id": 2,
-      "name": "Phone",
-      "price": 1000,
-      "description": "bla bla bla"
-    },
-    {
-      "id": 3,
-      "name": "Car",
-      "price": 70000,
-      "description": "bla bla bla"
+      "title": "111111111111",
+      "text": "[ewdgaewpjaidgfspjidfsgdg;fas;iasphjighas'dpfpgpjagppspipirhfsipi",
+      "id": 3
     }
   ]
 }
