@@ -21,9 +21,11 @@ export class NotesService extends BaseApi {
         return this.put(`notes/${note.id}`, note);
     }
     deleteNote(note: Note): Observable<Note> {
-        return this.delete(`notes/${note.id}`, note);
+        return this.delete(`notes/${note.id}`);
     }
-    // checkOrUnCheckNote(note: Note): Observable<Note> {
-    //   return this.
+
+    // checkOrUnCheckNote(note: Note) {
+    //   note.isChecked = !note.isChecked;
+    //   return note;
     // }
 }

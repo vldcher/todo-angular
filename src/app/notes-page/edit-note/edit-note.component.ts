@@ -22,14 +22,8 @@ export class EditNoteComponent implements OnInit {
 
   }
 
-    // onSubmit(form: NgForm) {
-    //     const {title, text} = form.value;
-    //
-    //     const note = new Note(title, text, +this.currentNoteId);
-    //
-    //     this.notesService.updateNote(note)
-    //         .subscribe((note: Note) => {
-    //             this.noteEdit.emit(note);
-    //         });
-    // }
+  noteChange() {
+    this.currentNote = this.notes
+      .find(n => n.id === +this.currentNoteId);
+  }
 }

@@ -1,35 +1,11 @@
 {
   "notes": [
     {
-      "title": "My title",
-      "text": "My text",
-      "id": 1
-    },
-    {
-      "title": "Greeting",
-      "text": "Hello world",
-      "id": 2
-    },
-    {
-      "title": "sadf",
-      "text": "asdf",
+      "title": "333",
+      "text": "333",
       "isChecked": false,
       "isArchived": false,
-      "id": 5
-    },
-    {
-      "title": "asd",
-      "text": "ads",
-      "isChecked": false,
-      "isArchived": false,
-      "id": 6
-    },
-    {
-      "title": "sdag",
-      "text": "asdg",
-      "isChecked": false,
-      "isArchived": false,
-      "id": 7
+      "id": 3
     }
   ]
 }

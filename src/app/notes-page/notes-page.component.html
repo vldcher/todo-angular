@@ -16,11 +16,16 @@
             </div>
             <div class="controls">
                 <div class="mark-done">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                            Mark as done
-                        </label>
+                    <div class="">
+                      <span class="hover-cursor" [class.text-success]="note.isChecked"
+                            (click)="markCheck(note)">
+                          <i class="far fa-lg" [ngClass]="note.isChecked ?
+                                                        'far fa-check-circle':
+                                                        'far fa-circle'">
+                          </i>
+                        <span *ngIf="note.isChecked"> unmark as done</span>
+                        <span *ngIf="!note.isChecked">mark as done</span>
+                        </span>
                     </div>
                 </div>
                 <div class="buttons">
@@ -30,7 +35,7 @@
                     <button class="btn btn-archive">
                         <i class="material-icons">delete_outline</i>
                     </button>
-                    <button class="btn btn-delete" (click)="deleteNote(note.id)">
+                    <button class="btn btn-delete" (click)="deleteCurrentNote(note)">
                         <i class="material-icons">clear</i>
                     </button>
                 </div>

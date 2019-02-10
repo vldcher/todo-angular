@@ -27,8 +27,15 @@ export class NotesPageComponent implements OnInit {
         this.notes.push(note);
     }
 
-    deleteNote(currentNote: Note) {
-        this.notesService.deleteNote(currentNote);
+    deleteCurrentNote(note: Note) {
+      this.notesService.deleteNote(note)
+        .subscribe((note) => {
+          this.notes.splice(this.notes.indexOf(note), 1);
+      });
     }
-
+  // this.notes.splice(this.notes.indexOf(note), 1);
+  markCheck(note: Note) {
+    note.isChecked = !note.isChecked;
+    // this.notesService.checkOrUnCheckNote(note);
+  }
 }
