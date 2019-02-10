@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Note} from '../note';
+import {NotesService} from '../shared/services/notes.service';
+
 @Component({
   selector: 'app-archived-notes-page',
   templateUrl: './archived-notes-page.component.html',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArchivedNotesPageComponent implements OnInit {
 
-  constructor() { }
+  notes: Note[] = [];
 
-  ngOnInit() {
+  constructor(private notesService: NotesService) {
   }
 
+  ngOnInit() {
+    this.notesService.getNotes()
+      .subscribe((notes: Note[]) => {
+        this.notes = notes;
+      });
+  }
+
+  unArchivateCurrentNote() {
+    console.log('unarchived');
+  }
 }

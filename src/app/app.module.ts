@@ -13,6 +13,7 @@ import { ArchivedNotesPageComponent } from './archived-notes-page/archived-notes
 import {TodoModule} from './todo-field/todo.module';
 import {AppRoutingModule} from './app-routing.module';
 import { EditNoteComponent } from './notes-page/edit-note/edit-note.component';
+import {NoteFilterPipe} from './shared/note-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditNoteComponent } from './notes-page/edit-note/edit-note.component';
     AddNoteComponent,
     NotesPageComponent,
     ArchivedNotesPageComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    NoteFilterPipe
   ],
   imports: [
       BrowserModule,
@@ -31,7 +33,7 @@ import { EditNoteComponent } from './notes-page/edit-note/edit-note.component';
       HttpClientModule,
       TodoModule
   ],
-  providers: [NotesService],
+  providers: [NotesService, NoteFilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

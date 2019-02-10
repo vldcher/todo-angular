@@ -1,3 +1,30 @@
-<p>
-  archived-notes-page works!
-</p>
+<div class="archived-notes__title">
+  <h3>Archived Notes</h3>
+</div>
+<div class="all-notes">
+  <ng-container
+    *ngFor=" let note of notes">
+    <div class="note"
+         *ngIf="note.isArchived">
+      <div class="note-description">
+        <div class="note-row">
+          <p>
+            Title: {{note.title}}
+          </p>
+        </div>
+        <div class="note-row">
+          <div>
+            Text: {{note.text}}
+          </div>
+        </div>
+        <div class="controls">
+          <div class="buttons">
+            <button class="btn btn-archive" (click)="unArchivateCurrentNote(note)">
+              <i class="fas fa-trash-restore-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

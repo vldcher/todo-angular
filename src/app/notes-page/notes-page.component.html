@@ -1,45 +1,60 @@
 <app-note (noteAdded)="newNoteAdded($event)"></app-note>
-
+<br>
+<div class="note-search">
+  <input type="text"
+         id="inputEmail"
+         class="form-control"
+         placeholder="Search..."
+         [(ngModel)]="title">
+</div>
 <div class="all-notes">
+  <ng-container
+    *ngFor=" let note of notes">
+    <!--*ngFor=" let note of notes | noteFilter:title">-->
     <div class="note"
-         *ngFor=" let note of notes">
-        <div class="note-description">
-            <div class="note-row">
-                <p>
-                    {{note.title}}
-                </p>
-            </div>
-            <div class="note-row">
-                <div>
-                    {{note.text}}
-                </div>
-            </div>
-            <div class="controls">
-                <div class="mark-done">
-                    <div class="">
-                      <span class="hover-cursor" [class.text-success]="note.isChecked"
-                            (click)="markCheck(note)">
-                          <i class="far fa-lg" [ngClass]="note.isChecked ?
-                                                        'far fa-check-circle':
-                                                        'far fa-circle'">
-                          </i>
-                        <span *ngIf="note.isChecked"> unmark as done</span>
-                        <span *ngIf="!note.isChecked">mark as done</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button type="submit" class="btn btn-add">
-                        <i class="material-icons">create</i>
-                    </button>
-                    <button class="btn btn-archive">
-                        <i class="material-icons">delete_outline</i>
-                    </button>
-                    <button class="btn btn-delete" (click)="deleteCurrentNote(note)">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-            </div>
+         *ngIf="!note.isArchived">
+      <div class="note-description">
+        <div class="note-row">
+          <p>
+            Title: {{note.title}}
+          </p>
         </div>
+        <div class="note-row">
+          <div>
+            Text: {{note.text}}
+          </div>
+        </div>
+        <div class="controls">
+          <div class="mark-done">
+            <div class="">
+              <span class="hover-cursor" [class.text-success]="note.isChecked"
+                    (click)="checkCurrentNote(note)">
+                <i class="far fa-lg" [ngClass]="note.isChecked ?
+                                              'far fa-check-circle':
+                                              'far fa-circle'">
+                </i>
+                <span *ngIf="note.isChecked"> unmark as done</span>
+                <span *ngIf="!note.isChecked">mark as done</span>
+              </span>
+            </div>
+          </div>
+          <div class="buttons">
+              <a [routerLink]="['/todo-field', 'edit-notes']">
+                <i class="material-icons">create</i>
+              </a>
+
+            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+              <!--<i class="material-icons">create</i>-->
+            <!--</button>-->
+            <button class="btn btn-archive" (click)="archivateCurrentNote(note)">
+              <i class="material-icons">delete_outline</i>
+            </button>
+            <button class="btn btn-delete" (click)="deleteCurrentNote(note)">
+              <i class="material-icons">clear</i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  </ng-container>
 </div>
