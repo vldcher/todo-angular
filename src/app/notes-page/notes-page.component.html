@@ -1,17 +1,17 @@
-<app-note (onNoteAdd)="newNoteAdded($event)"></app-note>
+<app-note (noteAdded)="newNoteAdded($event)"></app-note>
 
 <div class="all-notes">
     <div class="note"
-         *ngFor=" let n of notes">
+         *ngFor=" let note of notes">
         <div class="note-description">
             <div class="note-row">
                 <p>
-                    {{n.title}}
+                    {{note.title}}
                 </p>
             </div>
             <div class="note-row">
                 <div>
-                    {{n.text}}
+                    {{note.text}}
                 </div>
             </div>
             <div class="controls">
@@ -30,7 +30,7 @@
                     <button class="btn btn-archive">
                         <i class="material-icons">delete_outline</i>
                     </button>
-                    <button class="btn btn-delete" (click)="deleteNote(currentNote)">
+                    <button class="btn btn-delete" (click)="deleteNote(note.id)">
                         <i class="material-icons">clear</i>
                     </button>
                 </div>

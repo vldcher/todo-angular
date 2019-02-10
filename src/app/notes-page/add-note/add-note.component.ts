@@ -1,28 +1,31 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Note } from '../../note';
-import { NgForm } from '@angular/forms';
-import { NotesService } from '../../shared/services/notes.service';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Note} from '../../note';
+import {NgForm} from '@angular/forms';
+import {NotesService} from '../../shared/services/notes.service';
 
 @Component({
   selector: 'app-note',
   templateUrl: './add-note.component.html',
-  styleUrls: ['./add-note.component.scss']
+  styleUrls: ['./add-note.component.scss'],
+  providers: [NotesService]
 })
 export class AddNoteComponent {
-    completed = false;
-    @Output() noteAdded = new EventEmitter<Note>();
+  @Output() noteAdded = new EventEmitter<Note>();
 
-  constructor(private notesService: NotesService) { }
-    onSubmit(form: NgForm) {
-        const {title, text} = form.value;
+  constructor(private notesService: NotesService) {
+  }
 
-        const note = new Note(title, text);
+  onSubmit(form: NgForm) {
+    const {title, text} = form.value;
+    const isChecked = false;
+    const isArchived = false;
 
-        this.notesService.addNote(note)
-            .subscribe((note: Note) => {
-                form.reset();
-                this.noteAdded.emit(note);
-            });
-    }
+    const note = new Note(title, text, isChecked, isArchived);
 
+    this.notesService.addNote(note)
+      .subscribe((note: Note) => {
+        form.reset();
+        this.noteAdded.emit(note);
+      });
+  }
 }

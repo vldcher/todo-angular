@@ -11,8 +11,8 @@ export class NotesPageComponent implements OnInit {
 
   notes: Note[] = [];
 
-  currentNoteId = 1;
-  currentNote: Note;
+  // currentNoteId = 1;
+  // currentNote: Note;
 
   constructor(private notesService: NotesService) { }
 
@@ -27,8 +27,8 @@ export class NotesPageComponent implements OnInit {
         this.notes.push(note);
     }
 
-    deleteNote(note: Note) {
-        this.notesService.deleteNote(note);
+    deleteNote(currentNote: Note) {
+        this.notesService.deleteNote(currentNote);
     }
 
 }
