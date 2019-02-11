@@ -5,7 +5,7 @@ import {NoteFilterPipe} from '../shared/note-filter.pipe';
 
 @Component({
   selector: 'app-notes-page',
-  providers: [NoteFilterPipe],
+  // providers: [NoteFilterPipe],
   templateUrl: './notes-page.component.html',
   styleUrls: ['./notes-page.component.scss']
 })
