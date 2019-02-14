@@ -19,21 +19,15 @@ export class NotesService extends BaseApi {
     return this.get('notes');
   }
 
-  updateNote(note: Note): Observable<Note> {
-    return this.put(`notes/${note.id}`, note);
+  getNote(id: string): Observable<Note> {
+    return this.get(`notes/${id}`);
+  }
+
+  updateNote(id: number, update: Partial<Note>): Observable<Note> {
+    return this.put(`notes/${id}`, update);
   }
 
   deleteNote(note: Note): Observable<Note> {
     return this.delete(`notes/${note.id}`);
-  }
-
-// TODO: archivating and mark\unmark should be as a part of editing
-
-  archiveNote(note: Note): Observable<Note> {
-    return this.put(`notes/${note.id}`, note);
-  }
-
-  checkNote(note: Note): Observable<Note> {
-    return this.put(`notes/${note.id}`, note);
   }
 }

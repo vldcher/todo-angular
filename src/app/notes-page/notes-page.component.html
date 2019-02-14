@@ -9,8 +9,7 @@
 </div>
 <div class="all-notes">
   <ng-container
-    *ngFor=" let note of notes">
-    <!--*ngFor=" let note of notes | noteFilter:title">-->
+    *ngFor=" let note of notes | noteFilter:title">
     <div class="note"
          *ngIf="!note.isArchived">
       <div class="note-description">
@@ -39,7 +38,7 @@
             </div>
           </div>
           <div class="buttons">
-              <a [routerLink]="['/todo-field', 'edit-notes']">
+              <a [routerLink]="['/todo-field', 'edit-notes', note.id]">
                 <i class="material-icons">create</i>
               </a>
 

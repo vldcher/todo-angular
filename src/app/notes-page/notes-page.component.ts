@@ -49,9 +49,9 @@ export class NotesPageComponent implements OnInit {
   }
 
   checkCurrentNote(note: Note) {
-    this.notesService.checkNote(note)
-      .subscribe(() => {
-        note.isChecked = !note.isChecked;
+    this.notesService.updateNote(note.id, {isChecked: !note.isChecked})
+      .subscribe(({isChecked}) => {
+        note.isChecked = isChecked;
       });
   }
 
@@ -60,7 +60,7 @@ export class NotesPageComponent implements OnInit {
     // const note = new Note(this.title, this.text, this.isChecked, this.isArchived,
     //   +this.currentNoteId);
 
-    this.notesService.archiveNote(note)
+    this.notesService.updateNote(note.id, { isArchived: !note.isArchived })
       .subscribe((note: Note) => {
         this.noteUpdated.emit(note);
         note.isArchived = !note.isArchived;

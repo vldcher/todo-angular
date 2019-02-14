@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: 'todo-field', component: TodoFieldComponent, children: [
             {path: 'notes-page', component: NotesPageComponent},
             {path: 'archived-notes-page', component: ArchivedNotesPageComponent},
-            {path: 'edit-notes', component: EditNoteComponent}
+            {path: 'edit-notes/:id', component: EditNoteComponent}
         ]}
 ];
 

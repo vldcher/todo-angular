@@ -1,4 +1,6 @@
-<div class="note">
+<div class="note" *ngIf="note$ | async">
+  <!--<app-note [note]="note$ | async"></app-note>-->
+  <!--<app-note-list [notes]="notes$ | async"></app-note-list>-->
   <div class="header-block">
     <h3 class="note-title">Edit Note</h3>
   </div>

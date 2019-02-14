@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {Note} from '../../note';
 import {NotesService} from '../../shared/services/notes.service';
 import {NgForm} from '@angular/forms';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-edit-note',
@@ -9,12 +12,16 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./edit-note.component.scss']
 })
 export class EditNoteComponent implements OnInit {
-  @Input() notes: Note[] = [];
   @Output() noteEdit = new EventEmitter<Note>();
-  constructor(private notesService: NotesService) {}
+  note$: Observable<Note>;
+  constructor(private notesService: NotesService, private  route: ActivatedRoute) {}
 
   ngOnInit() {
 // TODO: get current note data
+    this.note$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.notesService.getNote(params.get('id')))
+    );
   }
 
   onSubmit(form: NgForm) {
@@ -24,9 +31,9 @@ export class EditNoteComponent implements OnInit {
 
     const note = new Note(title, text, isChecked, isArchived);
 
-    this.notesService.updateNote(note)
-      .subscribe((note: Note) => {
-        this.noteEdit.emit(note);
+    this.notesService.updateNote(note.id, note)
+      .subscribe((res: Note) => {
+        this.noteEdit.emit(res);
       });
   }
 }
