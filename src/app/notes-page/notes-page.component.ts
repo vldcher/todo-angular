@@ -5,7 +5,6 @@ import {NoteFilterPipe} from '../shared/note-filter.pipe';
 
 @Component({
   selector: 'app-notes-page',
-  // providers: [NoteFilterPipe],
   templateUrl: './notes-page.component.html',
   styleUrls: ['./notes-page.component.scss']
 })
@@ -13,11 +12,7 @@ export class NotesPageComponent implements OnInit {
   @Input() notes: Note[] = [];
   @Output() noteUpdated = new EventEmitter<Note>();
 
-  // notes: Note[] = [];
   title = '';
-
-  currentNoteId = 1;
-  currentNote: Note;
 
   constructor(private notesService: NotesService) {
   }
@@ -27,12 +22,6 @@ export class NotesPageComponent implements OnInit {
       .subscribe((notes: Note[]) => {
         this.notes = notes;
       });
-    this.noteChanges();
-  }
-
-  noteChanges() {
-    this.currentNote = this.notes
-      .find(n => n.id === +this.currentNoteId);
   }
 
   newNoteAdded(note: Note) {
@@ -43,7 +32,6 @@ export class NotesPageComponent implements OnInit {
     this.notesService.deleteNote(note)
       .subscribe((note) => {
         this.notes.splice(this.notes.indexOf(note), 1);
-        // TODO: fix problems with indexes after deleting
         console.log('deleted');
       });
   }
@@ -55,14 +43,9 @@ export class NotesPageComponent implements OnInit {
       });
   }
 
-  archivateCurrentNote(note: Note) {
-
-    // const note = new Note(this.title, this.text, this.isChecked, this.isArchived,
-    //   +this.currentNoteId);
-
-    this.notesService.updateNote(note.id, { isArchived: !note.isArchived })
+  archiveCurrentNote(note: Note) {
+    this.notesService.updateNote(note.id, {isArchived: !note.isArchived})
       .subscribe((note: Note) => {
-        this.noteUpdated.emit(note);
         note.isArchived = !note.isArchived;
       });
   }

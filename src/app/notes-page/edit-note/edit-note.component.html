@@ -6,9 +6,7 @@
   </div>
   <div class="note-description">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div
-        class="note-row"
-      >
+      <div class="note-row">
         <label class="note-row__label" for="note-title">Edit title</label>
         <input
           type="text"
@@ -20,9 +18,7 @@
           ngModel
         >
       </div>
-      <div
-        class="note-row"
-      >
+      <div class="note-row">
         <label class="note-row__label" for="note-text">Edit text</label>
         <textarea
           rows="8"
@@ -35,7 +31,7 @@
           name="text"
           ngModel
         >
-                </textarea>
+        </textarea>
       </div>
       <button type="submit" class="btn btn-add">
         confirm

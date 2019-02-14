@@ -1,32 +1,11 @@
 {
   "notes": [
     {
-      "title": "soME",
-      "text": "11",
-      "isChecked": false,
-      "isArchived": true,
-      "id": 4
-    },
-    {
-      "title": "TEsadfldsg",
-      "text": "33",
-      "isChecked": false,
-      "isArchived": true,
-      "id": 5
-    },
-    {
       "title": "several",
       "text": "definitions",
       "isChecked": true,
       "isArchived": false,
       "id": 10
-    },
-    {
-      "title": "waref",
-      "text": "agh",
-      "isChecked": false,
-      "isArchived": true,
-      "id": 11
     },
     {
       "title": "111",
@@ -38,7 +17,7 @@
     {
       "title": "12",
       "text": "12",
-      "isChecked": false,
+      "isChecked": true,
       "isArchived": false,
       "id": 14
     },
@@ -48,6 +27,13 @@
       "isChecked": false,
       "isArchived": true,
       "id": 15
+    },
+    {
+      "title": "asd",
+      "text": "asd",
+      "isChecked": false,
+      "isArchived": false,
+      "id": 16
     }
   ]
 }

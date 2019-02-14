@@ -17,7 +17,6 @@ export class EditNoteComponent implements OnInit {
   constructor(private notesService: NotesService, private  route: ActivatedRoute) {}
 
   ngOnInit() {
-// TODO: get current note data
     this.note$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.notesService.getNote(params.get('id')))
@@ -28,7 +27,6 @@ export class EditNoteComponent implements OnInit {
     const {title, text} = form.value;
     const isChecked = false;
     const isArchived = false;
-
     const note = new Note(title, text, isChecked, isArchived);
 
     this.notesService.updateNote(note.id, note)

@@ -22,7 +22,10 @@ export class ArchivedNotesPageComponent implements OnInit {
       });
   }
 
-  unArchivateCurrentNote() {
-    console.log('unarchived');
+  unArchiveCurrentNote(note: Note) {
+    this.notesService.updateNote(note.id, {isArchived: !note.isArchived})
+      .subscribe((note: Note) => {
+        note.isArchived = !note.isArchived;
+      });
   }
 }
