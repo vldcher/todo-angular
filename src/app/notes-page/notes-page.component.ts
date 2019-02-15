@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Note} from '../note';
 import {NotesService} from '../shared/services/notes.service';
 import {NoteFilterPipe} from '../shared/note-filter.pipe';
@@ -14,7 +14,8 @@ export class NotesPageComponent implements OnInit {
 
   title = '';
 
-  constructor(private notesService: NotesService) {
+  constructor(private notesService: NotesService,   private cdRef: ChangeDetectorRef) {
+
   }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class NotesPageComponent implements OnInit {
 
   newNoteAdded(note: Note) {
     this.notes.push(note);
+      this.cdRef.detectChanges();
   }
 
   deleteCurrentNote(note: Note) {

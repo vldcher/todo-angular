@@ -1,4 +1,4 @@
-<div class="note" *ngIf="note$ | async">
+<div class="note" *ngIf="note$ | async as note">
   <!--<app-note [note]="note$ | async"></app-note>-->
   <!--<app-note-list [notes]="notes$ | async"></app-note-list>-->
   <div class="header-block">
@@ -13,9 +13,8 @@
           id="note-title"
           class="note-row__input"
           required
-          #title="ngModel"
           name="title"
-          ngModel
+          [(ngModel)]="note.title"
         >
       </div>
       <div class="note-row">
@@ -29,7 +28,7 @@
           required
           #title="ngModel"
           name="text"
-          ngModel
+          [(ngModel)]="note.text"
         >
         </textarea>
       </div>
