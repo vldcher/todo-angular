@@ -16,26 +16,21 @@ export class EditNoteComponent implements OnInit {
   note$: Observable<Note>;
   note: Note;
   noteId: number;
-    noteIsChecked: boolean;
-    noteIsArchived: boolean;
+  noteIsChecked: boolean;
+  noteIsArchived: boolean;
 
   constructor(private notesService: NotesService, private  route: ActivatedRoute) {}
 
   ngOnInit() {
     this.note$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.notesService.getNote(params.get('id'))), tap(note => { this.noteId = note.id;
-        this.noteIsChecked = note.isChecked;
-        this.noteIsArchived = note.isArchived})
+        this.notesService.getNote(params.get('id'))), tap(note => {
+            this.noteId = note.id;
+            this.noteIsChecked = note.isChecked;
+            this.noteIsArchived = note.isArchived;
+        })
     );
   }
-  //
-  // getNoteValues(note: Note) {
-  //     this.notesService.updateNote(note.id, {isChecked: !note.isChecked})
-  //         .subscribe(({isChecked}) => {
-  //             note.isChecked = isChecked;
-  //         });
-  // }
 
   onSubmit(form: NgForm) {
     const {title, text} = form.value;
@@ -44,6 +39,7 @@ export class EditNoteComponent implements OnInit {
     this.notesService.updateNote(this.noteId, note)
       .subscribe((res: Note) => {
         this.noteEdit.emit(res);
+          alert('successfully edited!');
       });
   }
 }

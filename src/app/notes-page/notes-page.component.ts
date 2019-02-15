@@ -14,7 +14,7 @@ export class NotesPageComponent implements OnInit {
 
   title = '';
 
-  constructor(private notesService: NotesService,   private cdRef: ChangeDetectorRef) {
+  constructor(private notesService: NotesService) {
 
   }
 
@@ -27,14 +27,14 @@ export class NotesPageComponent implements OnInit {
 
   newNoteAdded(note: Note) {
     this.notes.push(note);
-      this.cdRef.detectChanges();
+      this.notes = [...this.notes];
   }
 
   deleteCurrentNote(note: Note) {
     this.notesService.deleteNote(note)
       .subscribe((note) => {
         this.notes.splice(this.notes.indexOf(note), 1);
-        console.log('deleted');
+          this.notes = [...this.notes];
       });
   }
 
@@ -49,6 +49,7 @@ export class NotesPageComponent implements OnInit {
     this.notesService.updateNote(note.id, {isArchived: !note.isArchived})
       .subscribe((note: Note) => {
         note.isArchived = !note.isArchived;
+          this.notes = [...this.notes];
       });
   }
 }
