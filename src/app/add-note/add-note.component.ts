@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {Note} from '../../note';
+import {Note} from '../note';
 import {NgForm} from '@angular/forms';
-import {NotesService} from '../../shared/services/notes.service';
+import {NotesService} from '../shared/services/notes.service';
 
 @Component({
   selector: 'app-note',

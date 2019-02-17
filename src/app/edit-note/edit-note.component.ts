@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
-import {Note} from '../../note';
-import {NotesService} from '../../shared/services/notes.service';
+import {Note} from '../note';
+import {NotesService} from '../shared/services/notes.service';
 import {NgForm} from '@angular/forms';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {switchMap, tap} from 'rxjs/operators';

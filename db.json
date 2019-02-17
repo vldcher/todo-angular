@@ -29,13 +29,6 @@
       "id": 15
     },
     {
-      "title": "asd",
-      "text": "asd",
-      "isChecked": false,
-      "isArchived": false,
-      "id": 16
-    },
-    {
       "title": "111",
       "text": "222",
       "isChecked": false,
@@ -55,6 +48,13 @@
       "isChecked": false,
       "isArchived": false,
       "id": 19
+    },
+    {
+      "title": "test 1",
+      "text": "test 1",
+      "isChecked": false,
+      "isArchived": true,
+      "id": 20
     }
   ]
 }
